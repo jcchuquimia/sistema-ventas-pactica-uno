@@ -24,6 +24,9 @@
 	<modules>
 		<module>producto-service</module>
         <module>pedido-service</module>
+        <module>commons</module>
+		<module>configuracion-service</module>
+        <module>eureka-service</module>
     </modules>
 	<scm>
 		<connection/>
