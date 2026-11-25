@@ -17,9 +17,9 @@ public class PedidoCircuitBreakerListener {
     @PostConstruct
     public void registerCircuitBreakerListener(){
         CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker("productoServiceCB");
-        circuitBreaker.getEventPublisher().onStateTransition(this::manjarTransicion);
+        circuitBreaker.getEventPublisher().onStateTransition(this::manejarTransicion);
     }
-    private void manjarTransicion(CircuitBreakerOnStateTransitionEvent event){
+    private void manejarTransicion(CircuitBreakerOnStateTransitionEvent event){
         if (event.getStateTransition() == CircuitBreaker.StateTransition.HALF_OPEN_TO_CLOSED) {
             pedidoReocveryService.recoverPedidosPendientes();
         }
